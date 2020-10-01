@@ -16,10 +16,10 @@
 <mat-list #todoist class="todolist">
   <mat-list-item *ngFor="let todo of todolist" class="list">
     <mat-checkbox color='primary'>
-      {{ todo }}
+      {{ todo.title }}
     </mat-checkbox>
     <button mat-mini-fab color="warn">
-      <i class="material-icons">close</i>
+      <i class="material-icons" (click)="deleteTodo(todo.id)">delete</i>
     </button>
   </mat-list-item>
 </mat-list>

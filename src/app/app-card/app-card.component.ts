@@ -6,13 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-card.component.css']
 })
 export class AppCardComponent implements OnInit {
+  a = 0 ;
   todolist = [
-    "my task 1"
+    {
+      id: this.a,
+      title: "task 1"
+    }
   ];
   addNewTodo(valueTodo: string) {
     if (valueTodo) {
-      this.todolist.push(valueTodo);
+      console.log(this.todolist.length)
+      this.todolist.push({
+        id: ++this.a,
+        title: valueTodo
+      });
     }
+  }
+  deleteTodo(id: number) {
+    console.log(id)
+    this.todolist = this.todolist.filter((item) => item.id != id)
+    console.log(this.todolist)
   }
   constructor() { }
 
